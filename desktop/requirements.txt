@@ -1,0 +1,17 @@
+# SIRGENT-AI desktop core — all-free, local-first
+# WebSocket bridge + audio
+websockets>=12.0
+sounddevice>=0.4.6
+numpy>=1.26.0
+
+# Voice-to-text (offline). If vosk fails to install, core falls back to SAPI stt stub.
+vosk>=0.3.45; platform_system == "Windows"
+
+# WhatsApp Web automation
+playwright>=1.48.0
+
+# Gemini brain (free tier)
+google-generativeai>=0.8.3
+
+# Image handling for screenshots
+pillow>=10.0.0

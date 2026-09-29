@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap");
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #050103;
+  color: #ffd9d0;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Share Tech Mono", Consolas, monospace;
+}
+
+::selection {
+  background: rgba(255, 42, 42, 0.5);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0206;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d0f14;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8a2530;
+}
+
+@layer components {
+  .grid-bg {
+    background-image: linear-gradient(rgba(255, 42, 42, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 42, 42, 0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  .panel {
+    @apply relative border border-tron-line bg-tron-panel/80 shadow-inset backdrop-blur-sm;
+  }
+
+  .panel-title {
+    @apply border-b border-tron-line px-3 py-1.5 font-grid text-[10px] font-bold uppercase tracking-[0.3em] text-tron-red/90;
+  }
+
+  .clip-corner {
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+
+  .btn-tron {
+    @apply border border-tron-dim px-4 py-2 font-grid text-xs font-bold uppercase tracking-[0.25em] text-tron-ice transition-all duration-200;
+  }
+  .btn-tron:hover {
+    @apply border-tron-red text-tron-red shadow-glow;
+    text-shadow: 0 0 8px rgba(255, 42, 42, 0.8);
+  }
+  .btn-tron:active {
+    @apply bg-tron-red/10;
+  }
+  .btn-tron:disabled {
+    @apply cursor-not-allowed opacity-40;
+  }
+}
+
+.scanlines::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.16) 0px,
+    rgba(0, 0, 0, 0.16) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 60;
+}
+
+.vignette::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(2, 0, 1, 0.85) 100%);
+  z-index: 55;
+}
